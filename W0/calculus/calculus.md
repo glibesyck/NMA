@@ -91,27 +91,27 @@ where $V(t)$ - membrane potential, $\tau_{m}$ - time constant, $E_{L}$ - resting
 
 Notice! Any activity which is higher than resting potential impacts negatively on the value of change in membrane potential (returns it back).
 
-Usually, $\tau\_{m} = 10\text{ms}$ and $E_{L} = -75\text{mV}$. Initial condition is $V(0) = V_{text{Reset}}$.
+Usually, $\tau\_{m} = 10\text{ms}$ and $E_{L} = -75\text{mV}$. Initial condition is $V(0) = V_{\text{Reset}}$.
 
 An exact solution of LIF model equation without input part (no sensory information at all) is
 
 $$
-V(t) = E_{L} + (V_{text{Reset}} - E_{L})e^{-\frac{t}{\tau_{m}}}
+V(t) = E_{L} + (V_{\text{Reset}} - E_{L})e^{-\frac{t}{\tau_{m}}}
 $$
 
 The exact solution with input part is the following equation:
 
-\begin{equation}
-V(t) = E*L+R_mI+(V*{reset}-E_L-R_mI)e^{\frac{-t}{\tau_m}}
-\end{equation}
+$$
+V(t) = E_{L} + R_{m}I + (V_{\text{Reset}} - E_{L} - R_{m}I)e^{-\frac{t}{\tau_{m}}}
+$$
 
-The solution is something that exponentially increases and then plateau - which is not physiologically correct. Thus we need to model the fire part of the neuron. If $V(t)$ is above $V_{text{th}}$, then the neuron is firing; below - it follows the described dynamics. We need to record the spiking time - $t_{text{spi}}$ and set $V(t_{text{spi}}) = V_{text{Reset}}$.
+The solution is something that exponentially increases and then plateau - which is not physiologically correct. Thus we need to model the fire part of the neuron. If $V(t)$ is above $V_{\text{th}}$, then the neuron is firing; below - it follows the described dynamics. We need to record the spiking time - $t_{\text{spi}}$ and set $V(t_{\text{spi}}) = V_{\text{Reset}}$.
 
 Finally, the exact solution with firing part will look like:
 
-\begin{equation}
-V(t) = E*L+R_mI+(V*{reset}-E_L-R_mI)e^{\frac{-t - t\*{spi}}{\tau_m}}
-\end{equation}
+$$
+V(t) = E_{L} + R_{m}I + (V_{\text{Reset}} - E_{L} - R_{m}I)e^{-\frac{-t - t_{\text{spi}}{\tau_{m}}}}
+$$
 
 Raster plot of spikes - dots whenever spike occurs.
 Rate model - when we learn how the input impacts the total number of spikes (frequency of neuron being fired).
@@ -121,3 +121,43 @@ Spiking here is the form of discontinuity which is hard to deal with and the mod
 # Numerical Methods
 
 Lots of equations in mathematics can't be solved directly -> numerical methods for approximation.
+
+Consider secant through points $(t_{0}, y_{0})$ and $(t_{1}, y_{1})$. When $t_{1}$ is very close to $t_{0}$ it almost becomes the tangent to the function ($\frac{\partial}{\partial t} y(t)$). As the conclusion, it follows that:
+
+$$
+\frac{\partial}{\partial t} y(t) = \frac{y_{1} - y_{0}}{t_{1} - t_{0}}
+$$
+
+and thus it can be derived that
+
+$$
+y_{1} \approx y_{0} + \frac{\partial}{\partial t} y(t) * (t_{1} - t_{0})
+$$
+
+It doesn't give the exact answer; indeed, on each step, as we don't know the true function, the error term is going to be accumulated. Such method for prediction of the next value of the function is called Euler method. The error $e_1$ from one time-step is known as the local error. For the Euler method the local error is linear, which means that the error decreases linearly as a function of timestep and is written as $O(\Delta t)$.
+
+In iterative maneer of the prediction it looks in the following way:
+
+$$
+y[k+1] = y[k] + \Delta t \frac{\partial}{\partial t[k]} y(t)[k]
+$$
+
+$\Delta t \frac{\partial}{\partial t[k]} y(t)[k]$ part is called "dynamics of the system" (what happens to it).
+
+On each next time step, the error becomes bigger - it is the global error which is the propagation of the local ones (accumulates all small ones). The analytical constraint on its value can be derived from Taylor expansion.
+
+**Note**: electrophysiologists normally listen to spikes when conducting experiments (one can transform membrane potential change into the sound).
+
+System of DEs can be used to describe the couple of processes interact. In neuroscience, Wilson-Cowan model describes how excitation and inhibition populations do that. Phase-plane plots are used then to examine DEs (when there are 2 variables f.e. and the plot describes the relationship between them, the overall dynamics which excludes temporal resolution from the plot itself but it is incorporated in the relationship).
+
+When the dynamics of populations are not bounded - warning sign (it can be the seizure or the wrong model). Quadrants in phase-plane plot show the derivative signs - where the functions increase and decrease (to have the division lines, one should find them by making the derivatives equal to zero). The solution is stable if we see the same trajectory over and over in the phase-plane plot.
+
+RK 4th order is easy to implement but the accuracy is much higher than in Euler method. It is 4th order meaning that error is $O(\Delta t^{4})$
+
+## Example: Neural oscillations
+
+A great deal of experimental and neurophysiological studies have investigated whether the brain oscillates and/or entrain to a stimulus. In the paper by Keith Dowlin and M. Florencia Assaneo published in May 2021, the question was approached from the math point of view by discussing what creates oscillations and how do the oscillators (systems which create oscillations) look like.
+
+The interesting observation is that even if the input is periodic (= oscillation), it doesn't necessarily provoke oscillation in the output (the system itself plays important role - reminds me of the randomness from Stephen Wolfram: we don't need random input to create random output).
+
+Moreover, their research illustrates an oscillations does not have to maintain all the time, so experimentally we should not expect perfectly maintained oscillations. We see this all the time in $\alpha$-band oscillations in EEG the oscillations come and go.
