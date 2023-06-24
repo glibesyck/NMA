@@ -110,7 +110,7 @@ The solution is something that exponentially increases and then plateau - which 
 Finally, the exact solution with firing part will look like:
 
 $$
-V(t) = E_{L} + R_{m}I + (V_{\text{Reset}} - E_{L} - R_{m}I)e^{-\frac{-t - t_{\text{spi}}{\tau_{m}}}}
+V(t) = E_{L} + R_{m}I + (V_{\text{Reset}} - E_{L} - R_{m}I)e^{-\frac{-t - t_{\text{spi}}}{\tau_{m}}}
 $$
 
 Raster plot of spikes - dots whenever spike occurs.
@@ -122,7 +122,7 @@ Spiking here is the form of discontinuity which is hard to deal with and the mod
 
 Lots of equations in mathematics can't be solved directly -> numerical methods for approximation.
 
-Consider secant through points $(t_{0}, y_{0})$ and $(t_{1}, y_{1})$. When $t_{1}$ is very close to $t_{0}$ it almost becomes the tangent to the function ($\frac{\partial}{\partial t} y(t)$). As the conclusion, it follows that:
+Consider secant through points $(t_{0}, y_{0})$ and $(t_{1}, y_{1})$. When $t_{1}$ is very close to $t_{0}$ it almost becomes the tangent to the function ($\frac{\partial}{\partial t}y(t)$). As the conclusion, it follows that:
 
 $$
 \frac{\partial}{\partial t} y(t) = \frac{y_{1} - y_{0}}{t_{1} - t_{0}}
