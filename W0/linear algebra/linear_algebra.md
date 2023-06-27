@@ -12,7 +12,7 @@ Stack vectors "tip to tail".
 
 Hierarchial Visual Processing Scheme
 
-[Hierarchial Visual Processing Scheme](https://drive.google.com/uc?export=download&id=116eP5jVVfqNoIJMnzyo0lDOAlMDYbVFE)
+![Hierarchial Visual Processing Scheme](https://drive.google.com/uc?export=download&id=116eP5jVVfqNoIJMnzyo0lDOAlMDYbVFE)
 Retina is in the back of the eye, while LGN (Lateral Geniculate Nucleus) is located in thalamus. Neurons in LGN are fired by the activity of retina neurons.
 
 Inner product - how many information is shared between the vectors.
