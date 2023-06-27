@@ -12,7 +12,7 @@ Stack vectors "tip to tail".
 
 Hierarchial Visual Processing Scheme
 
-![Hierarchial Visual Processing Scheme](https://drive.google.com/uc?export=download&id=116eP5jVVfqNoIJMnzyo0lDOAlMDYbVFE)
+![Hierarchial Visual Processing Scheme](https://drive.google.com/uc?export=view&id=116eP5jVVfqNoIJMnzyo0lDOAlMDYbVFE)
 Retina is in the back of the eye, while LGN (Lateral Geniculate Nucleus) is located in thalamus. Neurons in LGN are fired by the activity of retina neurons.
 
 Inner product - how many information is shared between the vectors.
@@ -34,7 +34,7 @@ may visually explain better what kind of transformation we have (rotation, contr
 Returning back to the example with retina neurons firing LGN ones, here we add more dimensionality - time (by
 making it discrete - chop the time up into little bins).
 
-If we have our initial condition $\mathbf{a}_{0} = c_{1}\mathbf{v}_{1} + c_{2}\mathbf{v}_{2}$, where $\mathbf{v}_{1}, \mathbf{v}_{2}$ are eigenvectors of matrix $W$ which corresponds to the dynamics of the system (meaning $\mathbf{a}_{t} = W*\mathbf{a}_{t-1}$), then:
+If we have our initial condition $\mathbf{a_0} = c_1\mathbf{v_1} + c_2\mathbf{v_2}$, where $\mathbf{v_1}, \mathbf{v_2}$ are eigenvectors of matrix $W$ which corresponds to the dynamics of the system (meaning $\mathbf{a_t} = W*\mathbf{a_{t-1}}$), then:
 
 $$
 \mathbf{a}_{t} = c_{1}\lambda_{1}^{t}\mathbf{v}_{1} + c_{2}\lambda_{2}^{t}\mathbf{v}_{2}
