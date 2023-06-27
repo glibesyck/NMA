@@ -37,7 +37,7 @@ making it discrete - chop the time up into little bins).
 If we have our initial condition $\mathbf{a_0} = c_1\mathbf{v_1} + c_2\mathbf{v_2}$, where $\mathbf{v_1}, \mathbf{v_2}$ are eigenvectors of matrix $W$ which corresponds to the dynamics of the system (meaning $\mathbf{a_t} = W*\mathbf{a_{t-1}}$), then:
 
 $$
-\mathbf{a}_{t} = c_{1}\lambda_{1}^{t}\mathbf{v}_{1} + c_{2}\lambda_{2}^{t}\mathbf{v}_{2}
+\mathbf{a_t} = c_1\lambda_1^t\mathbf{v_1} + c_2\lambda_2^t\mathbf{v_2}
 $$
 
 If all eigenvalues are real and at least one has an absolute value above 1, the neural activities explode to infinity or negative infinity, except for special cases where the initial condition lies along an eigenvector with an eigenvalue whose absolute value is below 1.
