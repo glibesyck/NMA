@@ -74,3 +74,9 @@ For unimodal distribution, entropy is zero; for bimodal it is one. It answers, h
 If we have the fixed mean value for the ditribution to have, then entropy exponential distribution outperforms uniform one. In fact, it can be analytically shown that among all distributions with fixed mean over positive numbers, exponential has the biggest entropy value.
 
 In "Why" models we start with the question what biology might optimize (we hypothesize constraints and search for the solution in the constrained setup of the real world that the brains need to solve).
+
+# Outro
+
+David Marr's 3 levels of complexity. Computational level (why models: what is the objective of the model and how close it is to optimal). Algorithmic level (what are the data structures, approximations and runtimes). Implementation level (what is the hardware?).
+
+Modeling - what we think is important and what questions do we want to address.
