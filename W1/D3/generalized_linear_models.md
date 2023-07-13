@@ -56,3 +56,9 @@ Output of logistic distribtuion perfectly works with Bernoulli distribution - we
 **Important Note**: Neuro data commonly has more features than samples. Having more neurons than independent trials is one example. In fMRI data, there are commonly more measured voxels than independent trials.
 
 Never use a model as evidence for a phenomena when that phenomena is encoded in the assumptions of the model.
+
+# Summary
+
+GLMs - classification (decoding - whether stimulus was lemon or sugar from continuous membrane potential; encoding - how taste stimulus influences spiking in next time step) and regression (decoding - motor intention based on spiking activity; encoding - predicting EEG response from visual stimuli); captures statistical relation between input and output.
+
+Unique solution obtained quickly, the funciton is convex. As long as regularization in convex (L1 and L2), the solution stays unique.
