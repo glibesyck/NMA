@@ -42,7 +42,7 @@ While optimizing model's parameters to solve a particular visual task that we kn
 
 Below is the picture which greatly reveals why there is more correlation between neural response of V1 area and max pooling level rather than with fully connected one; still neural response of V1 area is more disciminative I would say comparing to max pooling. Actually, this drastic change in fully-connected layer is due to the task itself we defined - it has the output of whether the stimulus is located to the left or to the right.
 
-!(Correlation for particular stimulus orientations)[../images/dl.png]
+![Correlation for particular stimulus orientations](../images/dl.png)
 
 Visualization techniques include: tuning curves (response of one neuron to all stimulus) and dimensionality reduction for all population (PCA or t-SNE). In practice, one first use the step of PCA so that tSNE runs faster.
 
