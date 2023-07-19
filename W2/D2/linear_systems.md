@@ -12,7 +12,7 @@ $$
 \dot{x} = \frac{dx}{dt} = Ax
 $$
 
-"Linear systems are all alike; every nonlinear system is nonlinear in its own way." Go with linear systems as long as you can and then only switch to nonlinear. When $a < 0$ - exponential decay; $a > 0$ - exponential growth. $x(t) = x_0 \text{exp}^(at)$ Behaviour on the system with 2 or more variables depends on the eigenvalues. Complex eigenvalues are extremely important for modeling cycling behaviour.
+"Linear systems are all alike; every nonlinear system is nonlinear in its own way." Go with linear systems as long as you can and then only switch to nonlinear. When $a < 0$ - exponential decay; $a > 0$ - exponential growth. $x(t) = x_0 \text{exp}^{(at)}$ Behaviour on the system with 2 or more variables depends on the eigenvalues. Complex eigenvalues are extremely important for modeling cycling behaviour.
 
 ![Eigenvalues and eigenvectors impact on the behaviour of the model](../images/eigen.png)
 
@@ -53,6 +53,6 @@ The interplay between the deterministic and stochastic parts serve to balance th
 
 # Autoregressive Models
 
-In general, we don't want to simulate data; instead, we would like to estimate parameters from the data. Assume such form of governing equation: $x_k+1 = \labmda x_k + \eta$. Plot of $x_k+1$ and $x_k$ will tell us about value of $\lambda$ (we expect to see it pretty linear with noise), so we solve regression problem for all these data points. We may want higher order autoregressive model: we need to include more history of the previous steps. With bigger amount of previously accounted steps, we will get better (as seeing more patterns) but doing so we can overfit!
+In general, we don't want to simulate data; instead, we would like to estimate parameters from the data. Assume such form of governing equation: $x_k+1 = \lambda x_k + \eta$. Plot of $x_k+1$ and $x_k$ will tell us about value of $\lambda$ (we expect to see it pretty linear with noise), so we solve regression problem for all these data points. We may want higher order autoregressive model: we need to include more history of the previous steps. With bigger amount of previously accounted steps, we will get better (as seeing more patterns) but doing so we can overfit!
 
 Truly random sequences of numbers have no structure and should not be predictable by an AR or any other models. However, humans are notoriously terrible at generating random sequences of numbers! (Other animals are no better...)

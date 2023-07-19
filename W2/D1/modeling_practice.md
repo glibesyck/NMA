@@ -52,7 +52,7 @@ It is reasonable to draft the model before implementing it with all necessary de
 
 Try to test each of the components separately. Moreover, test whether all ingridients are actually important (do we need filtering? does it do something useful?).
 
-*Leak term in general can be implemented as $e -= c*e$\*.
+Leak term in general can be implemented as $e -= ce$.
 
 8. Model completion.
 
@@ -77,4 +77,3 @@ Computational model question - "How do noisy vestibular estimates of motion lead
 ## General Advice
 
 For every modeling project, a very good exercise is to _**first**_ write a short, 100-word abstract of the project plan and expected impact. This forces focussing on the main points: describing the relevance, question, model, answer and what it all means very succinctly. This allows you to decide to do this project or not **before you commit time writing code for no good purpose**. Notice that this is really what we've walked you through carefully in this guide! 😀
-
